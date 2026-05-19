@@ -81,6 +81,85 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "terminal-console",
+      "type": "registry:block",
+      "title": "Terminal Console",
+      "description": "Developer trace logs and agent command execution simulator terminal block.",
+      "dependencies": [
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/terminal-console.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "agent-chat",
+      "type": "registry:block",
+      "title": "Agent Chat Workspace",
+      "description": "Conversational agent chat layout displaying user messages, step thoughts, and tool execution badges.",
+      "dependencies": [
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "glass-button",
+        "status-indicator"
+      ],
+      "files": [
+        {
+          "path": "registry/components/agent-chat.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "metrics-dashboard",
+      "type": "registry:block",
+      "title": "Agent Metrics Grid Dashboard",
+      "description": "Analytics telemetry grid showing active keys, performance levels, and inline SVG gradient charts.",
+      "dependencies": [
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "glass-card"
+      ],
+      "files": [
+        {
+          "path": "registry/components/metrics-dashboard.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "settings-panel",
+      "type": "registry:block",
+      "title": "Security Settings Console Panel",
+      "description": "Premium security configurations panel housing sidebar options, profile forms, and key reveal switches.",
+      "dependencies": [
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "glass-card",
+        "glass-button"
+      ],
+      "files": [
+        {
+          "path": "registry/components/settings-panel.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

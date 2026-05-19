@@ -11,6 +11,10 @@ import {
   GlassCardFooter,
 } from "@/registry/components/glass-card"
 import { StatusIndicator } from "@/registry/components/status-indicator"
+import { TerminalConsole } from "@/registry/components/terminal-console"
+import { AgentChat } from "@/registry/components/agent-chat"
+import { MetricsDashboard } from "@/registry/components/metrics-dashboard"
+import { SettingsPanel } from "@/registry/components/settings-panel"
 import {
   Copy,
   Check,
@@ -389,6 +393,142 @@ export default function StarkdesignHome() {
             </div>
           </div>
 
+          {/* Section 2: Application Blocks */}
+          <div className="mb-12 mt-16 pt-12 border-t border-white/10">
+            <h2 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+              <Layers className="h-5 w-5 text-violet-400" />
+              Interactive UI Blocks Showcase
+            </h2>
+            <p className="text-sm text-zinc-400 mt-1">
+              Complex layout blocks designed for analytics, conversation, log inspection, and configuration settings.
+            </p>
+          </div>
+
+          <div className="space-y-12 mb-16">
+            {/* Block 1: Agent Chat Workspace */}
+            <GlassCard className="p-6">
+              <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6 border-b border-white/5 pb-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-white">Agent Chat Workspace</h3>
+                    <span className="text-[10px] font-semibold bg-violet-500/10 border border-violet-500/20 text-violet-400 px-2 py-0.5 rounded">
+                      registry:block
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-400 mt-1">
+                    Complete chat interface block featuring collapsible thought traces and simulated tool status nodes.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs text-zinc-500">npx shadcn add {registryBaseUrl}/agent-chat.json</span>
+                  <button
+                    onClick={() => copyToClipboard(`npx shadcn@latest add ${registryBaseUrl}/agent-chat.json`, "cli-blk-chat")}
+                    className="p-1.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 rounded text-zinc-400 hover:text-white transition-all flex items-center gap-1"
+                  >
+                    {copiedId === "cli-blk-chat" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                  </button>
+                </div>
+              </div>
+              <div className="max-w-3xl mx-auto w-full">
+                <AgentChat />
+              </div>
+            </GlassCard>
+
+            {/* Block 2: Terminal Console & Metrics Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Terminal Console Block */}
+              <div className="lg:col-span-2">
+                <GlassCard className="p-6 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6 border-b border-white/5 pb-4">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-lg font-bold text-white">Terminal Console</h3>
+                          <span className="text-[10px] font-semibold bg-violet-500/10 border border-violet-500/20 text-violet-400 px-2 py-0.5 rounded">
+                            registry:block
+                          </span>
+                        </div>
+                        <p className="text-xs text-zinc-400 mt-1">
+                          Simulated system execution logger and state visualizer.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => copyToClipboard(`npx shadcn@latest add ${registryBaseUrl}/terminal-console.json`, "cli-blk-term")}
+                          className="p-1.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 rounded text-zinc-400 hover:text-white transition-all flex items-center gap-1"
+                        >
+                          {copiedId === "cli-blk-term" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                        </button>
+                      </div>
+                    </div>
+                    <TerminalConsole />
+                  </div>
+                </GlassCard>
+              </div>
+
+              {/* Metrics Grid Dashboard */}
+              <div className="lg:col-span-1">
+                <GlassCard className="p-6 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6 border-b border-white/5 pb-4">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-lg font-bold text-white">Metrics Dashboard</h3>
+                          <span className="text-[10px] font-semibold bg-violet-500/10 border border-violet-500/20 text-violet-400 px-2 py-0.5 rounded">
+                            registry:block
+                          </span>
+                        </div>
+                        <p className="text-xs text-zinc-400 mt-1">
+                          Key performance indicator cards with custom mini-sparkline charts.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => copyToClipboard(`npx shadcn@latest add ${registryBaseUrl}/metrics-dashboard.json`, "cli-blk-metrics")}
+                          className="p-1.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 rounded text-zinc-400 hover:text-white transition-all flex items-center gap-1"
+                        >
+                          {copiedId === "cli-blk-metrics" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      <MetricsDashboard />
+                    </div>
+                  </div>
+                </GlassCard>
+              </div>
+            </div>
+
+            {/* Block 3: Security & Keys Panel */}
+            <GlassCard className="p-6">
+              <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6 border-b border-white/5 pb-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-white">Security Settings Console</h3>
+                    <span className="text-[10px] font-semibold bg-violet-500/10 border border-violet-500/20 text-violet-400 px-2 py-0.5 rounded">
+                      registry:block
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-400 mt-1">
+                    Sidebar dashboard layout hosting secure authorization preferences, toggle controls, and mask key selectors.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs text-zinc-500">npx shadcn add {registryBaseUrl}/settings-panel.json</span>
+                  <button
+                    onClick={() => copyToClipboard(`npx shadcn@latest add ${registryBaseUrl}/settings-panel.json`, "cli-blk-settings")}
+                    className="p-1.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 rounded text-zinc-400 hover:text-white transition-all flex items-center gap-1"
+                  >
+                    {copiedId === "cli-blk-settings" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                  </button>
+                </div>
+              </div>
+              <div className="max-w-4xl mx-auto w-full">
+                <SettingsPanel />
+              </div>
+            </GlassCard>
+          </div>
+
           {/* Registry JSON Explorer */}
           <section id="schema" className="pt-12 pb-16 border-t border-white/10">
             <h3 className="text-xl font-bold tracking-tight text-white mb-6 flex items-center gap-2">
@@ -401,6 +541,10 @@ export default function StarkdesignHome() {
                 { name: "glass-button.json", type: "registry:ui", path: "/r/glass-button.json", desc: "Glassmorphic buttons with glowing hover effects." },
                 { name: "glass-card.json", type: "registry:ui", path: "/r/glass-card.json", desc: "Premium compound card component panels." },
                 { name: "status-indicator.json", type: "registry:ui", path: "/r/status-indicator.json", desc: "Dynamic system state badges." },
+                { name: "terminal-console.json", type: "registry:block", path: "/r/terminal-console.json", desc: "Developer command simulation trace logger block." },
+                { name: "agent-chat.json", type: "registry:block", path: "/r/agent-chat.json", desc: "Agent chat dialog panel utilizing buttons and indicators." },
+                { name: "metrics-dashboard.json", type: "registry:block", path: "/r/metrics-dashboard.json", desc: "Telemetry charts grids nested inside custom cards." },
+                { name: "settings-panel.json", type: "registry:block", path: "/r/settings-panel.json", desc: "Secure preferences layouts with key masking triggers." },
                 { name: "use-media-query.json", type: "registry:hook", path: "/r/use-media-query.json", desc: "React hooks triggers." },
                 { name: "utils.json", type: "registry:lib", path: "/r/utils.json", desc: "Tailwind merge helper routines." },
                 { name: "registry.json", type: "manifest", path: "/r/registry.json", desc: "Central registry index manifest descriptor." },
