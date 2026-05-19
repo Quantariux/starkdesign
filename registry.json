@@ -1,0 +1,86 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "starkdesign",
+  "homepage": "https://starkdesign.site",
+  "items": [
+    {
+      "name": "glass-button",
+      "type": "registry:ui",
+      "title": "Glass Button",
+      "description": "Premium glassmorphic button with gradient and glow variants.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/glass-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "glass-card",
+      "type": "registry:ui",
+      "title": "Glass Card",
+      "description": "Elegant glassmorphic card container components.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/glass-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-indicator",
+      "type": "registry:ui",
+      "title": "Status Indicator",
+      "description": "An animated component that indicates active, idle, loading, streaming, and error states.",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/status-indicator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "Use Media Query",
+      "description": "React hook for responsive media query triggers.",
+      "files": [
+        {
+          "path": "registry/hooks/use-media-query.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Class merging utilities for component composition.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    }
+  ]
+}
