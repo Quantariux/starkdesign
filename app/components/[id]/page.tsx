@@ -725,7 +725,7 @@ export default function ComponentDetailPage() {
               <div className="relative w-full rounded-xl border border-black/10 dark:border-white/10 bg-[#f8f8f8] dark:bg-zinc-950 overflow-hidden shadow-none flex flex-col">
                 <div className="flex items-center justify-between px-4 py-1.5 bg-zinc-100/85 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
                   <div className="flex items-center gap-2">
-                    <div className="flex size-4 items-center justify-center rounded bg-zinc-200 dark:bg-zinc-850 text-zinc-650 dark:text-zinc-400">
+                    <div className="flex size-4 items-center justify-center rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
                       <Terminal className="h-3 w-3" />
                     </div>
                     <div className="flex items-center bg-transparent border-0 gap-1">
@@ -735,7 +735,7 @@ export default function ComponentDetailPage() {
                           onClick={() => setPkgManager(pm)}
                           className={`relative inline-flex items-center justify-center rounded-md px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                             pkgManager === pm
-                              ? "bg-white dark:bg-zinc-850 text-zinc-900 dark:text-white border border-zinc-250 dark:border-zinc-700/50"
+                              ? "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700/50"
                               : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/30"
                           }`}
                         >
