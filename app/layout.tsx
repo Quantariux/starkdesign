@@ -19,11 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground relative bg-grid transition-colors duration-300`}>
+      <body className={`${inter.className} min-h-screen bg-background text-foreground relative transition-colors duration-300`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           <div className="absolute inset-0 bg-radial pointer-events-none -z-10 animate-fade-in" />

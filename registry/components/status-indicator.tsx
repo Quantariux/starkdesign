@@ -8,10 +8,10 @@ const statusIndicatorVariants = cva(
     variants: {
       status: {
         idle: "bg-zinc-500/10 text-zinc-400 border-zinc-500/20",
-        active: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]",
-        streaming: "bg-sky-500/10 text-sky-400 border-sky-500/20 shadow-[0_0_15px_rgba(14,165,233,0.1)]",
-        loading: "bg-amber-500/10 text-amber-400 border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]",
-        error: "bg-rose-500/10 text-rose-400 border-rose-500/20 shadow-[0_0_15px_rgba(244,63,94,0.1)]",
+        active: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+        streaming: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+        loading: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+        error: "bg-rose-500/10 text-rose-400 border-rose-500/20",
       },
     },
     defaultVariants: {

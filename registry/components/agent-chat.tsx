@@ -68,12 +68,12 @@ export function AgentChat() {
   }
 
   return (
-    <div className="flex flex-col h-[450px] rounded-xl border border-white/10 bg-zinc-950/80 backdrop-blur-md overflow-hidden shadow-2xl">
+    <div className="flex flex-col h-[450px] rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-zinc-950/80 backdrop-blur-md overflow-hidden">
       {/* Chat Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-zinc-900/60 border-b border-white/5">
+      <div className="flex items-center justify-between px-4 py-3 bg-zinc-100/80 dark:bg-zinc-900/60 border-b border-black/5 dark:border-white/5">
         <div className="flex items-center gap-2">
-          <Cpu className="h-4 w-4 text-violet-400" />
-          <span className="font-semibold text-xs tracking-wider text-zinc-200">AGENT WORKSPACE</span>
+          <Cpu className="h-4 w-4 text-blue-400" />
+          <span className="font-semibold text-xs tracking-wider text-zinc-700 dark:text-zinc-200">AGENT WORKSPACE</span>
         </div>
         <StatusIndicator status="active" label="Agent Active" />
       </div>
@@ -84,36 +84,36 @@ export function AgentChat() {
           <div key={msg.id} className="flex flex-col gap-2">
             {/* Avatar Row */}
             <div className="flex items-center gap-2">
-              <div className="p-1 rounded bg-zinc-900 border border-zinc-800">
+              <div className="p-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
                 {msg.role === "user" ? (
                   <User className="h-3.5 w-3.5 text-sky-400" />
                 ) : (
-                  <Cpu className="h-3.5 w-3.5 text-violet-400" />
+                  <Cpu className="h-3.5 w-3.5 text-blue-400" />
                 )}
               </div>
-              <span className="text-xs font-bold text-zinc-300">
+              <span className="text-xs font-bold text-zinc-600 dark:text-zinc-300">
                 {msg.role === "user" ? "USER" : "STARKDESIGN AGENT"}
               </span>
             </div>
 
             {/* Content Bubble */}
             <div className="pl-8">
-              <div className="bg-white/5 border border-white/5 rounded-lg p-3 text-zinc-100 max-w-xl">
+              <div className="bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 rounded-lg p-3 text-zinc-800 dark:text-zinc-100 max-w-xl">
                 {msg.content}
               </div>
 
               {/* Thought Steps */}
               {msg.thought && (
-                <div className="mt-2.5 rounded border border-violet-500/10 bg-violet-950/10 overflow-hidden max-w-xl">
+                <div className="mt-2.5 rounded border border-blue-500/20 dark:border-blue-500/10 bg-blue-500/5 dark:bg-blue-950/10 overflow-hidden max-w-xl">
                   <button
                     onClick={() => toggleThought(msg.id)}
-                    className="w-full flex items-center justify-between px-3 py-1.5 text-[10px] font-semibold text-violet-400 hover:bg-violet-950/20 transition-all select-none cursor-pointer"
+                    className="w-full flex items-center justify-between px-3 py-1.5 text-[10px] font-semibold text-blue-600 dark:text-blue-400 hover:bg-blue-500/10 dark:hover:bg-blue-950/20 transition-all select-none cursor-pointer"
                   >
                     <span>Thought Process</span>
                     {expandedThoughts[msg.id] ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
                   </button>
                   {expandedThoughts[msg.id] && (
-                    <div className="px-3 py-2 text-xs text-violet-300 border-t border-violet-500/5 bg-violet-950/5 leading-normal">
+                    <div className="px-3 py-2 text-xs text-blue-700 dark:text-blue-300 border-t border-blue-500/5 bg-blue-500/5 dark:bg-blue-950/5 leading-normal">
                       {msg.thought}
                     </div>
                   )}
@@ -122,13 +122,13 @@ export function AgentChat() {
 
               {/* Tool Execution Block */}
               {msg.toolCall && (
-                <div className="mt-2 rounded border border-white/5 bg-zinc-900/60 p-2.5 text-xs max-w-xl flex items-center justify-between font-mono">
-                  <div className="flex items-center gap-2 text-zinc-300">
-                    <span className="text-violet-400">tool:</span>
-                    <span>{msg.toolCall.name}</span>
-                    <span className="text-zinc-500 text-[10px]">{msg.toolCall.args}</span>
+                <div className="mt-2 rounded border border-black/5 dark:border-white/5 bg-zinc-100 dark:bg-zinc-900/60 p-2.5 text-xs max-w-xl flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono">
+                  <div className="flex flex-wrap items-center gap-1.5 text-zinc-700 dark:text-zinc-300 min-w-0">
+                    <span className="text-blue-400">tool:</span>
+                    <span className="font-semibold">{msg.toolCall.name}</span>
+                    <span className="text-zinc-500 text-[10px] break-all">{msg.toolCall.args}</span>
                   </div>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase font-semibold">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase font-semibold shrink-0 self-start sm:self-auto">
                     {msg.toolCall.status}
                   </span>
                 </div>
@@ -139,13 +139,13 @@ export function AgentChat() {
       </div>
 
       {/* Input Form */}
-      <form onSubmit={handleSend} className="p-3 bg-zinc-900/40 border-t border-white/5 flex gap-2">
+      <form onSubmit={handleSend} className="p-3 bg-zinc-100/40 dark:bg-zinc-900/40 border-t border-black/5 dark:border-white/5 flex gap-2">
         <input
           type="text"
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           placeholder="Ask the agent to build something..."
-          className="flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-3 py-2 text-sm text-zinc-200 placeholder-zinc-500 outline-none focus:border-violet-500"
+          className="flex-1 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md px-3 py-2 text-sm text-zinc-800 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 outline-none focus:border-blue-500"
         />
         <Button variant="glass" size="icon" type="submit">
           <Send className="h-4 w-4" />

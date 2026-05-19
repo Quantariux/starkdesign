@@ -11,9 +11,9 @@ const GlassCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl border border-white/20 dark:border-white/10 bg-white/5 dark:bg-black/20 backdrop-blur-md text-card-foreground shadow-lg transition-all duration-300",
-      glow && "shadow-[0_0_20px_rgba(255,255,255,0.05)] border-white/30 dark:border-white/20",
-      hoverGlow && "hover:bg-white/10 dark:hover:bg-black/30 hover:border-white/35 dark:hover:border-white/25 hover:shadow-xl hover:shadow-indigo-500/5",
+      "rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md text-card-foreground transition-all duration-300",
+      glow && "border-black/20 dark:border-white/20",
+      hoverGlow && "hover:bg-white/80 dark:hover:bg-zinc-900/50 hover:border-black/15 dark:hover:border-white/25",
       className
     )}
     {...props}

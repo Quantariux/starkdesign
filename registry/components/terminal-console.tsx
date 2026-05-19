@@ -63,18 +63,18 @@ export function TerminalConsole() {
   }, [logs])
 
   return (
-    <div className="w-full rounded-xl border border-white/10 bg-black/40 backdrop-blur-md overflow-hidden font-mono text-xs shadow-2xl">
+    <div className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-zinc-950 text-zinc-100 overflow-hidden font-mono text-xs">
       {/* Console Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-zinc-900/80 border-b border-white/5">
+      <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800">
         <div className="flex items-center gap-2">
-          <Terminal className="h-4 w-4 text-violet-400" />
+          <Terminal className="h-4 w-4 text-blue-400" />
           <span className="text-zinc-200 font-semibold tracking-wider">starkdesign@agent-terminal</span>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={runSimulation}
             disabled={isSimulating}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-violet-600 hover:bg-violet-500 disabled:opacity-50 text-white font-semibold transition-all cursor-pointer select-none"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-semibold transition-all cursor-pointer select-none"
           >
             <Play className="h-3 w-3" />
             Simulate

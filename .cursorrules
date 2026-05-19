@@ -1,0 +1,41 @@
+# Starkdesign Registry - Component Development Rules
+
+You must strictly adhere to the following rules when creating, modifying, or testing components inside the registry.
+
+## 1. Responsive Design & Layout Constraints
+
+All registry components must look beautiful and work flawlessly across ALL screen sizes, including:
+- **Mobile (320px - 639px)**
+- **Tablet (640px - 1023px)**
+- **Desktop (1024px and up)**
+
+### Flex & Grid Layouts
+- **NEVER** use fixed pixel widths (`w-[380px]`, `w-[600px]`) on outer containers or primary layout structures. Instead, use responsive width sizing like `w-full` combined with `max-w-xl`, `max-w-4xl`, or percentage classes.
+- **NEVER** hardcode column counts in grids without breakpoints. Always use:
+  - `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
+  - Avoid `grid-cols-3` without prefixing it for responsive screen widths (`md:` or `lg:`).
+- When using layout sidebars or splits, use:
+  - `flex flex-col md:flex-row`
+  - Ensure borders adapt to layout orientation: `border-b md:border-b-0 md:border-r` instead of a static `border-r`.
+
+### Typography & Spacing
+- Use responsive padding and margins:
+  - Mobile: `p-3` or `p-4`, `space-y-4`
+  - Desktop: `p-6` or `p-8`, `space-y-6`
+- Keep font sizes readable and scale them using standard Tailwind classes (e.g. `text-sm md:text-base`).
+
+### Overflow Protection
+- Any code listings, data tables, logs, or keys that render long, uninterrupted content MUST be wrapped in a container that supports horizontal scroll:
+  - Use `overflow-x-auto scrollbar-thin` and `break-all` on unspaced text.
+- Ensure that text fields, strings, and inputs do not extend outside their bounds on ultra-narrow viewports. Use `w-full min-w-0` to bypass default flex shrink behavior.
+
+### Interactive Elements
+- Ensure buttons, checkboxes, and interactive controls have touch target sizes of at least `44px` (or `p-2`) on mobile.
+- Use native input behaviors on mobile to prevent virtual keyboard overlaps (e.g., proper input types, viewport height considerations).
+
+## 2. Light & Dark Theme Adaptability
+
+All components must dynamically react to mode changes (`dark` class on `html` / `body`):
+- Ensure background styles use `bg-white/70 dark:bg-zinc-950/80` or similar adaptive patterns.
+- Ensure borders use `border-black/5 dark:border-white/5` or `border-zinc-200 dark:border-zinc-800`.
+- Ensure text uses readable contrast (e.g., `text-zinc-800 dark:text-zinc-200`).
