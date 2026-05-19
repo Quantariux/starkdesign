@@ -15,6 +15,7 @@ import { TerminalConsole } from "@/registry/components/terminal-console"
 import { AgentChat } from "@/registry/components/agent-chat"
 import { MetricsDashboard } from "@/registry/components/metrics-dashboard"
 import { SettingsPanel } from "@/registry/components/settings-panel"
+import { ModeToggle } from "@/components/mode-toggle"
 import {
   Copy,
   Check,
@@ -59,22 +60,22 @@ export default function StarkdesignHome() {
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-zinc-950/60 backdrop-blur-md">
         <div className="container mx-auto max-w-7xl h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <Cpu className="h-6 w-6 text-violet-400 animate-pulse" />
-            <span className="font-extrabold text-lg tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
-              STARKDESIGN
-            </span>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20">
-              REGISTRY
-            </span>
-          </div>
+          <a style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }} href="/">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "2rem", height: "2rem", color: "var(--foreground)" }}>
+              <rect x="4" y="4" width="16" height="4" rx="1" fill="currentColor"></rect>
+              <rect x="4" y="10" width="10" height="4" rx="1" fill="currentColor"></rect>
+              <rect x="10" y="16" width="10" height="4" rx="1" fill="currentColor"></rect>
+            </svg>
+            <span className="mobile-hidden" style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--foreground)", fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}>Starkdesign</span>
+          </a>
 
-          <nav className="flex items-center gap-6 text-sm font-medium text-zinc-400">
+          <nav className="flex items-center gap-4 sm:gap-6 text-sm font-medium text-zinc-400">
             <a href="#components" className="hover:text-white transition-colors">Components</a>
             <a href="#schema" className="hover:text-white transition-colors flex items-center gap-1">
               Explorer
               <ExternalLink className="h-3 w-3" />
             </a>
+            <ModeToggle />
             <Button
               variant="glass"
               size="sm"
